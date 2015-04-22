@@ -1,0 +1,12 @@
+<link rel="stylesheet" type="text/css" href="/styles/spreadsheet.css" />
+<template>
+  <table>
+    <tbody>
+    <tr repeat.for="row of rows">
+      <td repeat.for="cell of row.cells">
+        <span if.bind="cell.isHeader">${cell.header}</span>
+        <input id="${cell.cellId}" if.bind="!cell.isHeader" type="text" value.bind="cell.computed" focus.delegate="cell.showFormula()" blur.delegate="$parent.$parent.compute(cell, $event)" ></input>
+      </td>
+    </tr>
+  </tbody>
+</table>
