@@ -1,3 +1,5 @@
+// reference: http://jsfiddle.net/ondras/hYfN3/
+
 const SS = "spreadsheet";
 const ROWS = 20;
 const COLS = 20;
@@ -5,8 +7,23 @@ export class Spreadsheet {
   rows = [];
   data = {};
   constructor() {
-    for(let i = 0; i < ROWS; i++){
-      this.rows.push(new Row(i, COLS));
+    var stored = JSON.parse(localStorage[SS] || "[]");
+
+    if(stored.length == 0) {
+      for(let i = 0; i < ROWS; i++){
+        this.rows.push(new Row(i, COLS));
+      }
+    } else {
+      for(let r in stored) {
+        let cells = stored[r].cells;
+        let row = new Row(r, cells.length);
+        for (let c in cells) {
+          let thisCell = cells[c];
+          let cell = new Cell(thisCell.colId, thisCell.rowId, thisCell.formula, thisCell.computed);
+          row.cells[c] = cell;
+        }
+        this.rows.push(row);
+      }
     }
   }
 
@@ -19,6 +36,7 @@ export class Spreadsheet {
         this.data[cell.cellId] = cell.computed;
       }
     }
+    localStorage[SS] = JSON.stringify(this.rows);
   }
 }
 
@@ -34,10 +52,12 @@ class Row {
 
 class Cell {
   formula = "";
-  constructor(colId, rowId) {
+  constructor(colId, rowId, formula = "", computed="") {
     this.colId = colId;
     this.rowId = rowId;
-    this.cellId = this.letter + this.rowId.toString();
+    this.cellId = this.letter + this.rowId;
+    this.formula = formula;
+    this.computed = computed;
   }
 
   get isHeader() {
