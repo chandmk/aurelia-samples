@@ -1,0 +1,21 @@
+<link rel="stylesheet" type="text/css" href="/styles/creditcard.css" />
+<template>
+<div class=" credit-card-container">
+    <form>
+        <label>
+            CC Number:
+            <input type="text" maxlength="20" value.bind="ccnumber">
+        </label>
+        <label>
+            Month (##):
+            <input type="text" name="cc-exp-month" maxlength="2" value.bind="month">
+        </label>
+        <label>
+            Year (####):
+            <input type="text" maxlength="4" value.bind="year">
+        </label>
+        <input type="button" value="Validate Card" click.delegate="validate()">
+    </form>
+    <span class="message">${message}</span>
+</div>
+</template>

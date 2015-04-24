@@ -18,6 +18,7 @@ System.config({
     "aurelia-animator-css": "github:aurelia/animator-css@0.1.0",
     "aurelia-bootstrapper": "github:aurelia/bootstrapper@0.11.0",
     "aurelia-dependency-injection": "github:aurelia/dependency-injection@0.6.0",
+    "aurelia-event-aggregator": "github:aurelia/event-aggregator@0.3.0",
     "aurelia-framework": "github:aurelia/framework@0.10.0",
     "aurelia-http-client": "github:aurelia/http-client@0.7.0",
     "aurelia-router": "github:aurelia/router@0.7.2",
