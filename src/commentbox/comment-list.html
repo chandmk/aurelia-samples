@@ -1,0 +1,8 @@
+<template>
+	<require from="./comment"></require>
+	<div class="commentList">
+		<template repeat.for="c of comments">			
+			<comment text.bind="c.text" author.bind="c.author"></comment>			
+		</template>
+	</div>
+</template>

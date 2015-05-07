@@ -1,0 +1,7 @@
+<template>
+	<form class="commentForm" submit.delegate="saveComment()">
+		<input type="text" placeholder="Your Name" value.bind="author" />
+		<input type="text" placeholder="Say something..." value.bind="text" />
+		<input type="submit" value="Post" />
+	</form>
+</template>

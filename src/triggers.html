@@ -1,8 +1,15 @@
 <template>
   <section>
-    <label>Triggers</label>
-  <input id="triggers" change.trigger="doSomething($event)"  focus.trigger="doSomething($event)"  blur.trigger="doSomething($event)" />
-  <!--<label>Delegates</label>
+ <!--    <label>Triggers</label>
+ <input id="triggers" change.trigger="doSomething($event)"  focus.trigger="doSomething($event)"  blur.trigger="doSomething($event)" />
+  <label>Delegates</label>
  <input id="delegates" change.delegate="doSomething($event)"  focus.delegate="doSomething($event)"  blur.delegate="doSomething($event)" /> -->
+   <template show.bind="toggle" >
+     
+   <input type="checkbox" /> My Check Box
+         <br/>
+   </template>
+     <button click.trigger="toggleCheckBox()">Show/Hide CheckBox</button>
+         
 </section>
 </template>

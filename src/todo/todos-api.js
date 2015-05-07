@@ -1,65 +1,63 @@
-export class TodosAPI {
-  constructor() {
-    this.todos = [];
-    this.counter = 0;
-  }
+let todos = [];
+let counter = 0;
 
+export class TodosAPI {
   get(id) {
-    return this.todos[id] || null;
+    return todos[id] || null;
   }
 
   getList() {
-    var todoList = [];
-    for(let todo of this.todos) {
-      todoList.push(this.todos[todo.id]);
+    let todoList = [];
+    for(let todo of todos) {
+      todoList.push(todos[todo.id]);
     }
 
     return todoList;
   }
 
   markAsComplete(id){
-    if(this.todos[id]) {
-      this.todos[id].markAsComplete();
+    if(todos[id]) {
+      todos[id].markAsComplete();
     }
   }
 
   markAllAsComplete() {
-    for(let todo of this.todos) {
+    for(let todo of todos) {
       todo.markAsComplete();
     }
   }
 
   markAsIncomplete(id) {
-    if(this.todos[id]) {
-      this.todos[id].markAsIncomplete();
+    if(todos[id]) {
+      todos[id].markAsIncomplete();
     }
   }
 
   markAllAsIncomplete(id) {
-    for(let todo of this.todos) {
+    for(let todo of todos) {
       todo.markAsIncomplete();
     }
   }
 
   remove(id) {
-    delete this.todos[id];
+    delete todos[id];
   }
 
   removeCompleted() {
-    for(let todo of this.todos){
+    for(let todo of todos){
       if(todo.completed) {
         delete todo;
       }
     }
   }
 
-  update(todo) {
-    this.todos[id].updateTitle(title);
+  update(id, title) {
+    todos[id].updateTitle(title);
   }
 
   add(title) {
     var id = counter++;
-    this.todos[id] = new Todo(id, title);
+    todos[id] = new Todo(id, title);
   }
 }
 

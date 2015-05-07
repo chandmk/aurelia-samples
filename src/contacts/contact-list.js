@@ -15,7 +15,6 @@ export class ContactList {
         Object.assign(found, msg.contact);
       });
     }
-
     created(){
       this.api.getContactList().then(contacts => {
         this.contacts = contacts;

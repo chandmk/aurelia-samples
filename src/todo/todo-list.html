@@ -1,0 +1,19 @@
+<template>
+  <section show.bind="todoList.length > 0">
+    <template  if.bind="hasInCompleted">
+      <input type="checkbox" click.delegate="markAllAsComplete()">Mark all as complete</input>
+    </template>
+    <ul class="list-unstyled">
+      <li repeat.for="todo of todoList">
+      <template if.bind="$parent.editTodo.title == undefined">
+        <input type="checkbox" checked.bind="todo.completed" />
+        <label click.delegate="$parent.edit(todo)" >${todo.title}</label>
+        <button class="btn btn-small" click.delegate="$parent.remove(todo)"><span class="glyphicon glyphicon-remove"></span></button>
+      </template>
+        <template if.bind="$parent.editTodo.title != undefined">
+          <input type="text" value.two-way="todo.title" blur.delegate="$parent.update()" />
+        </template>
+      </li>
+    </ul>
+</section>
+</template>
