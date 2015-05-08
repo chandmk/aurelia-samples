@@ -1,0 +1,34 @@
+<template>
+	<require from="./search-bar"></require>
+		<section>
+			<form submit.delegate>
+				<input type="text" value.bind="filterText" palceholder="search" change.delegate="filterChanged()" ></input>
+				<p>
+					<input type="checkbox" checked.bind="inStockOnly" change.delegate="filterChanged()" /> Only show products in stock
+				</p>
+			</form>
+		</section>
+		<section>
+			<table class="table table-condensed">
+				<thead>
+					<tr>
+						<th>name</th>
+						<th>Price</th>
+					</tr>
+				</thead>
+				<tbody>
+					<template repeat.for="p of filteredProducts">
+						<tr>
+							<th colspan="2" if.bind="$parent.isNewCategory(p.category)">
+						 ${p.category}
+							</td>
+						</tr>
+						<tr>
+							<td><span class="${!p.stocked ? 'label label-danger' : ''}">${p.name}</span></td>
+							<td>${p.price}</td>
+						</tr>				
+					</template>
+				</tbody>
+			</table>
+		</section>
+</template>

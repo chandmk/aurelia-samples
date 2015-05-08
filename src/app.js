@@ -8,6 +8,7 @@ export class App {
         {route: ['', 'spreadsheet'], moduleId: './spreadsheet', nav:true, title: 'SpreadSheet'},
         {route: 'welcome', moduleId: './welcome', nav:true, title:'Welcome'},
         {route: 'commentbox', moduleId: './commentbox/app', nav:true, title:'Comment Box'},
+        {route: 'catalog', moduleId: './catalog/products', nav:true, title:'Catalog'},
         {route: 'triggers', moduleId: './triggers', nav:true},
         {route: 'flicker', moduleId: './flicker', nav:true},
         {route: 'child-router', modileId: './child-router', nav: true, title: 'Child Router'},
